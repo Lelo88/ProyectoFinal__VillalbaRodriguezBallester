@@ -1,8 +1,9 @@
 from django.urls import path, include
 
-from .views import Inicio
+from .views import Inicio, Presentacion
 
 urlpatterns = [
     path('',Inicio.as_view(), name="Inicio"),
-    path('', include('AppUsuario.urls'))
+    path('inicio/', Presentacion.as_view(), name="Presentacion"),
+    path('', include('AppUsuario.urls')),
 ]

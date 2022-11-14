@@ -4,3 +4,7 @@ from django.views.generic import TemplateView
 
 class Inicio(TemplateView):
     template_name = 'padre.html'
+
+class Presentacion(TemplateView):
+    template_name = 'inicio.html'
+    messages = 'Hola'

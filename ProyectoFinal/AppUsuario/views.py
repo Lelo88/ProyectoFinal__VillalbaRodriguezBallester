@@ -45,7 +45,8 @@ def loginView(request):
             if user:
                 
                 login(request, user)
-                return render(request, 'inicio.html', {'mensaje' : f'Bienvenido {usuario}'})
+                return render(request, 'notas.html', {'mensaje': f'Aca van las notas'})
+                #return render(request, '/ProyectoFinal/AppNotas/templates/notas.html', {'mensaje' : f'Bienvenido {usuario}'})
             
             else:
                 return render(request, 'inicio.html', {'mensaje' : f'Error. Datos incorrectos.'})
