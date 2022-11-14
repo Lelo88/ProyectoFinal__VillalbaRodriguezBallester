@@ -18,6 +18,7 @@ class Nota(models.Model):
     titulo = models.CharField(max_length = 200)
     cuerpo = models.CharField(max_length = 500)
     autor = models.ForeignKey(User, on_delete=models.CASCADE)
+    etiqueta = models.ForeignKey(Etiqueta, on_delete=models.CASCADE, null=True)
     
     fecha_creacion = models.DateTimeField(auto_now_add=True)
     fecha_actualizada = models.DateTimeField(auto_now=True)
