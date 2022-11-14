@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  {% load static %}  
+  <meta charset="UTF-8">
+  <title>Sign In / Sign Up | Nothing4us</title>
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Montserrat:400,700'>
+  <link rel="stylesheet" href="{% static '/styles.css' %}">
+
+</head>
+<body>
+
+	<!-- partial:index.partial.html -->
+<div class="login-container">
+	<form action="{% url 'Login' %}" class="form-login" method="POST">{% csrf_token %}
+		<ul class="login-nav">
+			<li class="login-nav__item active">
+				<a href="{% url 'Registro' %}">Registro</a>
+			</li>
+            <li class="login-nav__item">
+				<a href="{% url 'Login' %}">Login</a>
+			</li>
+		</ul>
+		
+        
+        <label for="login-input-user" class="login__label">
+		Nombre de usuario {{mi_formulario.username}}
+        </label>
+        <label for="login-input-password" class="login__label">
+            Contraseña {{mi_formulario.password}}
+        </label>
+        <label for="login-input-password" class="login__label">
+       
+
+
+		<input class="login__submit" type="submit" value="Inicie sesión">
+	</form>
+</div>
+<!-- partial -->
+  
+</body>
+</html>
