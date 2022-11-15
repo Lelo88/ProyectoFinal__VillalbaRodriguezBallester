@@ -49,9 +49,9 @@ def loginView(request):
                 #return render(request, '/ProyectoFinal/AppNotas/templates/notas.html', {'mensaje' : f'Bienvenido {usuario}'})
             
             else:
-                return render(request, 'inicio.html', {'mensaje' : f'Error. Datos incorrectos.'})
+                return render(request, 'registro.html')
         
-        return render(request, "inicio.html", {"mensaje": f'Error, formulario invalido'})
+        return render(request, "registro.html")
     
     else: 
         

@@ -32,20 +32,72 @@
 	<div class="container">
 		<div class="row">
 			<div class="d-block">
-				{% include 'navegacion1.html' %}
+				<nav class="navbar navbar-expand-lg bg-light fixed-top">
+					<div class="container-fluid">
+						<a class="navbar-brand" href="{% url 'Inicio' %}"><img height="50px" src="{% static '/images/M106.jpg' %}" alt="logo"></a>
+				
+						{% if user.is_authenticated %}
+						<ul class="navbar-nav ms-auto">
+							{% comment %} <li class="nav-item ">
+									<input class="form-control" type="search" placeholder="Search" aria-label="Search">
+									<!-- <button class="btn btn-outline-warning" type="submit">Search</button> -->
+							</li> {% endcomment %}
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+									{{ user.username }}
+								</a>
+								<ul class="dropdown-menu dropdown-menu-end">
+									<li><a class="dropdown-item" href="">Change password</a></li>
+									<li><hr class="dropdown-divider"></li>
+									<li><a class="dropdown-item" href="{% url 'Logout' %}">Log Out</a></li>
+								</ul>
+							</li>
+						</ul>
+				
+						{% else %}
+						<button class="search navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+							<span class="navbar-toggler-icon"></span>
+						</button>
+						<div class="collapse navbar-collapse" id="navbarSupportedContent">
+							<ul class="navbar-nav ms-auto">
+								<li class="nav-item">
+									<a class="nav-link btn btn-outline-primary m-1" href="{% url 'Login' %}">Login</a>
+								</li>
+								<li class="nav-item sign-up">
+									<a class="nav-link btn btn-primary m-1 " href="{% url 'Registro' %}">Registrese</a>
+								</li>
+							</ul>
+						</div>
+						{% endif %}
+					</div>
+				</nav>
 			</div>
-			
 		</div>
-		 
 	</div>
-	
+	<div class="container">
+		
+		<section class="home-section">
+			<div class="col-6 ">
+				<div class="col-lg-6 col-md-6 main-text">
+					<h1 class="heading">Document More, Achieve More</h1>
+					<p class="subheading">Anota y recuerda lo que quieras en todo lugar y momento</p>
+					{% if user.is_authenticated %}
+					<a class="btn btn-warning btn-lg starting-btn" href="{% url 'Notas' %}">View Notes</a>
+					{% else %}
+					<a class="btn btn-dark btn-lg starting-btn" href="{% url 'Registro' %}">Empecemos</a>
+					{% endif %}
+				</div>
 
-	<main>
-		{% block content %}
-		{% endblock content %}
-	</main>
+				<div class="col-lg-6 col-md-6">
+					<img class="image-title" src="{% static 'images/notes-image1.png' %}" alt="notes">
+				</div>
+			</div>
+		</section>
 
-	<footer>
+	</div>
+
+							
+		<footer>
 		{% block footer %}
 		{% endblock footer %}
 	</footer>
